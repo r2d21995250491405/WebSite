@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title th:text="${review[0].title}" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container mt-5">
+    <div th:each="rew : ${review}">
+        <h3 th:text="${rew.title}"/>
+        <p th:text="${rew.text}"/>
+        <p><b>Автор: </b><span th:text="${rew.author.username}"/></p>
+        <form th:action="@{/reviews/} + ${rew.review_id} + @{/delete}" method="post">
+            <button class="btn btn-danger" type="submit">Удалить</button>
+        </form>
+        <a class="btn btn-warning mt-2" th:href="@{/reviews/} + ${rew.review_id} + @{/update}">Редактировать</a><br>
+    </div>
+</div>
+<div th:replace="blocks/footer :: footer"></div>
+</body>
+</html>

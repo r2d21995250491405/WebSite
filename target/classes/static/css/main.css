@@ -1,0 +1,14 @@
+footer {
+    width: 80%;
+    margin-left: 10%;
+}
+
+a.kek:hover {
+    background-color: black;
+    color: white;
+}
+
+input.qq:hover {
+    background-color: black;
+    color: white;
+}
